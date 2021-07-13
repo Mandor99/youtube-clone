@@ -1,0 +1,21 @@
+1.	::-webkit-scrollbar {
+		width: 0;
+	} ==>> for inner element & in global individual
+
+2.		white-space: nowrap;
+
+3. to limit (truncate) the content in a specified number line ==>>
+	a. display: -webkit-box;
+		overflow: hidden;
+		-webkit-line-clamp: 1; //one line
+		-webkit-box-orient: vertical;
+
+	b. text-overflow: ellipse;
+		overflow: hidden;
+		white-space: nowrap;
+
+	4. toggle sidebar ==>> {
+		1. when click on sidebar itself will close. => toggleSideBar(false)
+		2.when click on FaBars icon will toggle. => toggleSideBar() => sideBar(true) => aside.open className
+		
+	}
