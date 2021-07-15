@@ -9,8 +9,19 @@ import {
 	MdHome,
 	MdSentimentDissatisfied,
 } from 'react-icons/md';
+import { authLogOut } from '../features/authActions';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Sidebar({ sideBar, toggleSideBar }) {
+	const dispatch = useDispatch();
+	const history = useHistory();
+
+	const handleLogOut = () => {
+		dispatch(authLogOut());
+		history.push('/login');
+	};
+
 	return (
 		<Aside
 			className={sideBar ? 'open' : ''}
@@ -41,7 +52,7 @@ function Sidebar({ sideBar, toggleSideBar }) {
 				<span>I don't know</span>
 			</Item>
 			<hr />
-			<Item>
+			<Item onClick={handleLogOut}>
 				<MdExitToApp size={23} />
 				<span>Log Out</span>
 			</Item>

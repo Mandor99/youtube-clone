@@ -17,5 +17,6 @@
 	4. toggle sidebar ==>> {
 		1. when click on sidebar itself will close. => toggleSideBar(false)
 		2.when click on FaBars icon will toggle. => toggleSideBar() => sideBar(true) => aside.open className
-		
 	}
+
+4. redux thunk ==>> to return an action creator function not only action creator.
