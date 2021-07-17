@@ -1,26 +1,88 @@
-import React from 'react';
-import { Section, ThumbWrapper, Title, Details, Channel } from '../styles/VideoStyle';
-import {AiFillEye} from 'react-icons/ai'
-import thumbImg from '../images/thumb.webp'
-import channelImg from '../images/channel.jpg'
+import React, { useEffect, useState } from 'react';
+import {
+	Section,
+	ThumbWrapper,
+	Title,
+	Details,
+	Channel,
+} from '../styles/VideoStyle';
+import { AiFillEye } from 'react-icons/ai';
+import thumbImg from '../images/thumb.webp';
+import channelImg from '../images/channel.jpg';
+import videoReqInstance from '../api';
+import moment from 'moment';
+import numeral from 'numeral';
 
-function Video() {
+function Video({
+	video: {
+		id,
+		snippet: { channelId },
+	},
+}) {
+	const [date, setDate] = useState('');
+	const [duration, setDuration] = useState('');
+	const [views, setViews] = useState('');
+	const [thumbnail, setThumbnail] = useState({});
+	const [thumbnailVideo, setThumbnailVideo] = useState({});
+	const [name, setName] = useState('');
+	const [title, setTitle] = useState('');
+	const _videoId = id;
+	const _channelId = channelId;
+	const secondes = moment.duration(duration).asSeconds();
+	const _videoDuration = moment.utc(secondes * 1000).format('mm: ss');
+
+	useEffect(() => {
+		const getVideo = async () => {
+			const res = await videoReqInstance('/videos', {
+				params: {
+					part: 'contentDetails, snippet, statistics',
+					id: _videoId,
+				},
+			});
+			const { items } = res.data;
+			setDate(items[0]?.snippet?.publishedAt);
+			setDuration(items[0]?.contentDetails?.duration);
+			setViews(items[0]?.statistics?.viewCount);
+			setTitle(items[0]?.snippet?.title);
+			setThumbnailVideo(items[0].snippet?.thumbnails?.default);
+		};
+		getVideo();
+	}, [_videoId]);
+
+	useEffect(() => {
+		const getChannels = async () => {
+			const {
+				data: { items },
+			} = await videoReqInstance('/channels', {
+				params: {
+					part: 'snippet',
+					id: _channelId,
+				},
+			});
+			setThumbnail(items[0].snippet?.thumbnails?.default);
+			setName(items[0].snippet.title);
+		};
+		getChannels();
+	}, [_channelId]);
+
 	return (
 		<Section>
 			<ThumbWrapper>
-                <img src={thumbImg} alt=" video thumbnail" />
-                <figcaption className='video__time'>5: 43</figcaption>
-            </ThumbWrapper>
-            <Title>Next.js Tutorial - 24 - Inspecting getStaticPaths Builds</Title>
-            <Details>
-                <AiFillEye />
-                <span className="video__views">&nbsp; 2m. </span>
-                <span className="video__date">&nbsp; 15 hours ago</span>
-            </Details>
-            <Channel>
-                <img src={channelImg} alt="channel avatar" />
-                <span className="channel__name">Codevolution</span>
-            </Channel>
+				<img src={thumbnailVideo?.url} alt=' video thumbnail' />
+				<figcaption className='video__time'>{_videoDuration}</figcaption>
+			</ThumbWrapper>
+			<Title>{title}</Title>
+			<Details>
+				<AiFillEye />
+				<span className='video__views'>
+					&nbsp; {numeral(views).format('0a')}{' '}
+				</span>
+				<span className='video__date'>&nbsp; {moment(date).fromNow()}</span>
+			</Details>
+			<Channel>
+				<img src={thumbnail?.url} alt='channel avatar' />
+				<span className='channel__name'>{name}</span>
+			</Channel>
 		</Section>
 	);
 }

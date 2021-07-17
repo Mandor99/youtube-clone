@@ -20,3 +20,29 @@
 	}
 
 4. redux thunk ==>> to return an action creator function not only action creator.
+
+5. to get youtube api ==>> {
+	1. get it from google services // AIzaSyCtvQeSvcnz_necRxgLJaBVAqQE90-otg4
+	2. choose the scope u want and add it to provider from firebase (i want a scope to add comments) // * the scope give you more permissions ==>> https://www.googleapis.com/auth/youtube.force-ss
+	3. learn how to deal with the api from the reference (i need the videos [liked, popular, ...])
+	4. get the baseURL with axios==>> [GET https://www.googleapis.com/youtube/v3/${videos || comments || what you need dealing with}]
+}
+
+6. make the api with axios [baseURL, params(api key)]
+
+7. make the state {videos:[], load:false, nextPageToken:null, category, error:null} && reducers && actions [success, fail, req] to get videos(most popular) //fill the rest of the api like the the reference
+
+8. get the video when request the home page && what u want (id, thumbnail, duration, view, title, date, channelTitle, channelId) in video component after pass it as a prop from videos[]
+
+9. make action for searchList by catagories
+
+10. when you get the video details ==>> make private req for individual video and channelId [by id && channelId] because the video will be change in the first the videoId will be from mostPopular then may be u need it to be from the catagories.
+
+11. to get the duration as '10: 40' ==>> {
+	1. let seconds = moment.duration(duration).asSeconds()
+	2. let _duration = moment.utc(seconds*1000).format('mm: ss')
+}
+
+12. to get the number [views] like 5.m ==>> {
+	1.numeral(views).format('0.a')
+}
