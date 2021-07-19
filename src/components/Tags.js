@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import { TagsSlide } from '../styles/TagsStyle';
+import { useDispatch } from 'react-redux';
+import { getVideosByCategory } from '../features/videos/videosActions';
 
 function Tags() {
 	const [active, setActive] = useState('all');
-	const handleActive = (val) => setActive(val);
+	const dispatch = useDispatch();
+	const handleActive = (val) => {
+		setActive(val);
+		dispatch(getVideosByCategory(val));
+	};
 	const tags = [
 		'all',
 		'react',
@@ -13,6 +19,8 @@ function Tags() {
 		'gatsby',
 		'history',
 		'javascript',
+		'data structure',
+		'algorithms',
 		'software',
 		'music',
 		'redux toolkit',

@@ -6,8 +6,8 @@ import {
 
 const initState = {
 	load: false,
-	// category: 'all',
-	nextPageToken: null,
+	category: 'all',
+	nextPageToken: '',
 	items: [],
 	error: null,
 };
@@ -23,8 +23,14 @@ export const videoReducer = (state = initState, { type, payload }) => {
 			return {
 				...state,
 				load: false,
-				items: payload.items,
+				// items: payload.items,
+				//i'll make it in items [...prevVideos, newVideos] => because of infinite scroll component
+				items:
+					state.category === payload.category
+						? [...state.items, ...payload.items]
+						: payload.items,
 				nextPageToken: payload.nextPageToken,
+				category: payload.category,
 			};
 		case FAIL__VIDEO__POPULAR:
 			return {

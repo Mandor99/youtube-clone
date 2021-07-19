@@ -34,7 +34,7 @@
 
 8. get the video when request the home page && what u want (id, thumbnail, duration, view, title, date, channelTitle, channelId) in video component after pass it as a prop from videos[]
 
-9. make action for searchList by catagories
+9. make action for searchList by catagories('/search') [with the same state => so every restApi will be in individual function async creator because every one will be with a different end point]
 
 10. when you get the video details ==>> make private req for individual video and channelId [by id && channelId] because the video will be change in the first the videoId will be from mostPopular then may be u need it to be from the catagories.
 
@@ -46,3 +46,7 @@
 12. to get the number [views] like 5.m ==>> {
 	1.numeral(views).format('0.a')
 }
+
+13. infinite scroll [pagination] => react-infinite-scroll-component
+14. load => react-loading-skeleton
+15. lazy load img => react-lazy-load-image-component

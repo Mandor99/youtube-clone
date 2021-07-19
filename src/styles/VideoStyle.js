@@ -7,13 +7,18 @@ export const Section = styled.section`
 	font-weight: 500;
 	font-size: 0.9rem;
 	cursor: pointer;
+
+	.lazy-load-image-background {
+		width: 100%;
+	}
 `;
 
 export const ThumbWrapper = styled.figure`
 	position: relative;
 	margin-bottom: 0.5rem;
 
-	img {
+	img,
+	.lazy-load-image-background {
 		width: 100%;
 		object-fit: cover;
 	}
@@ -48,7 +53,8 @@ export const Channel = styled.div`
 	gap: 0.5rem;
 	margin: 0.5rem 0;
 
-	img {
+	img,
+	.lazy-load-image-background {
 		width: 36px;
 		height: 36px;
 		object-fit: contain;
