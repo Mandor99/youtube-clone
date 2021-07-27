@@ -50,3 +50,10 @@
 13. infinite scroll [pagination] => react-infinite-scroll-component
 14. load => react-loading-skeleton
 15. lazy load img => react-lazy-load-image-component
+16. react-show-more-text
+
+17. to embed youtube video ==>> <div>
+                            <iframe title='watched video' src="https://www.youtube.com/embed/d1uVmE1J1U8" frameBorder='0' allowFullScreen width='100%' height='100%' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        </div>
+
+18.

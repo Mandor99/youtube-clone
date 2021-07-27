@@ -6,6 +6,8 @@ import { GlobalStyle } from './styles/GlobalStyle';
 import LogIn from './pages/LogIn';
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import AuthRoute from './routes/authProtectedRoute';
+import Watch from './pages/Watch';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function App() {
 	return (
@@ -14,6 +16,7 @@ function App() {
 			<Switch>
 				<AuthRoute exact path='/' component={Home} />
 				<Route exact path='/login' component={LogIn} />
+				<Route exact path='/watch/:id' component={Watch} />
 			</Switch>
 		</Router>
 	);

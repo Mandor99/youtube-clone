@@ -7,6 +7,7 @@ export const colors = {
 	line: '#4c4c4c',
 	color1: '#374a59',
 	color2: '#080808ec',
+	color3: '#353946',
 };
 
 export const paddings = {
