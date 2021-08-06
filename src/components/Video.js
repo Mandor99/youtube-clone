@@ -13,12 +13,15 @@ import videoReqInstance from '../api';
 import moment from 'moment';
 import numeral from 'numeral';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useHistory } from 'react-router-dom';
 
 function Video({
 	video: {
 		id,
 		snippet: { channelId },
+		contentDetails, //from channelPage
 	},
+	channel,
 }) {
 	const [date, setDate] = useState('');
 	const [duration, setDuration] = useState('');
@@ -27,10 +30,11 @@ function Video({
 	const [thumbnailVideo, setThumbnailVideo] = useState({});
 	const [name, setName] = useState('');
 	const [title, setTitle] = useState('');
-	const _videoId = id?.videoId || id;
+	const _videoId = contentDetails?.videoId || id?.videoId || id;
 	const _channelId = channelId;
 	const secondes = moment.duration(duration).asSeconds();
 	const _videoDuration = moment.utc(secondes * 1000).format('mm: ss');
+	const history = useHistory();
 
 	useEffect(() => {
 		const getVideo = async () => {
@@ -66,8 +70,12 @@ function Video({
 		getChannels();
 	}, [_channelId]);
 
+	const handleWatchVideo = () => {
+		history.push(`watch/${_videoId}`);
+	};
+
 	return (
-		<Section>
+		<Section onClick={handleWatchVideo}>
 			<ThumbWrapper>
 				<LazyLoadImage
 					effect='blur'
@@ -84,14 +92,16 @@ function Video({
 				</span>
 				<span className='video__date'>&nbsp; {moment(date).fromNow()}</span>
 			</Details>
-			<Channel>
-				<LazyLoadImage
-					effect='blur'
-					src={thumbnail?.url}
-					alt='channel avatar'
-				/>
-				<span className='channel__name'>{name}</span>
-			</Channel>
+			{!channel && (
+				<Channel>
+					<LazyLoadImage
+						effect='blur'
+						src={thumbnail?.url}
+						alt='channel avatar'
+					/>
+					<span className='channel__name'>{name}</span>
+				</Channel>
+			)}
 		</Section>
 	);
 }

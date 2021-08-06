@@ -26,6 +26,10 @@ export const ChannelWrapper = styled.section`
 		border-radius: 0;
 		text-transform: uppercase;
 		letter-spacing: 0.5px;
+
+		&.btn-gray {
+			background-color: gray;
+		}
 	}
 `;
 

@@ -5,6 +5,9 @@ const videoReqInstance = axios.create({
 	params: {
 		key: 'AIzaSyCtvQeSvcnz_necRxgLJaBVAqQE90-otg4',
 	},
+	data: {
+		withCredentials: true,
+	},
 });
 
 export default videoReqInstance;

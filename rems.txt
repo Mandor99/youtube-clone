@@ -56,4 +56,9 @@
                             <iframe title='watched video' src="https://www.youtube.com/embed/d1uVmE1J1U8" frameBorder='0' allowFullScreen width='100%' height='100%' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                         </div>
 
-18.
+18. {
+	a. <Route path='watch/:id' component={Watch}/>
+	b. const {id} = useParams() ==>> to get the id in Watch
+}
+
+19. 

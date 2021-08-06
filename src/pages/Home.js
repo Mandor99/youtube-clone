@@ -54,6 +54,7 @@ function Home() {
 								</Col>
 						  ))
 						: [...Array(20)].map((val, i) => (
+								//i make a loop not use count prop in Skeleton to be grid layout like i want with Col
 								<Col lg={3} md={4} sm={6} key={i}>
 									<SkeletonLoad />
 								</Col>

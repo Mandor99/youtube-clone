@@ -16,6 +16,12 @@ export const Section = styled.section`
 	& .recommended__details {
 		font-size: 0.9rem;
 	}
+	& .recommended__desc {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
 
 	& .recommended__name {
 		display: -webkit-box;
@@ -23,6 +29,11 @@ export const Section = styled.section`
 		-webkit-line-clamp: 1;
 		-webkit-box-orient: vertical;
 		font-size: 0.9rem;
+	}
+
+	.channel-icon {
+		width: 40px;
+		height: 40px;
 	}
 `;
 
@@ -32,9 +43,9 @@ export const Fig = styled.figure`
 	text-align: center;
 
 	& .recommendedChannel {
-		border-radius: 50%;
-		width: 75px;
-		height: 75px;
+		/* border-radius: 50%; */
+		width: 100%;
+		/* min-height: 75px; */
 		object-fit: cover;
 		cursor: pointer;
 	}

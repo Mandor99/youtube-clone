@@ -11,7 +11,7 @@ import {
 } from 'react-icons/md';
 import { authLogOut } from '../features/authActions';
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 function Sidebar({ sideBar, toggleSideBar }) {
 	const dispatch = useDispatch();
@@ -27,14 +27,18 @@ function Sidebar({ sideBar, toggleSideBar }) {
 			className={sideBar ? 'open' : ''}
 			onClick={() => toggleSideBar(false)}
 		>
-			<Item>
-				<MdHome size={23} />
-				<span>Home</span>
-			</Item>
-			<Item>
-				<MdSubscriptions size={23} />
-				<span>Subscriptions</span>
-			</Item>
+			<Link to='/'>
+				<Item>
+					<MdHome size={23} />
+					<span>Home</span>
+				</Item>
+			</Link>
+			<Link to='/profile/subscription'>
+				<Item>
+					<MdSubscriptions size={23} />
+					<span>Subscriptions</span>
+				</Item>
+			</Link>
 			<Item>
 				<MdThumbUp size={23} />
 				<span>Liked Videos</span>
