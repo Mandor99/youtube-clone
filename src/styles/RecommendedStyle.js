@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from './GlobalStyle';
+import { colors, media } from './GlobalStyle';
 
 export const Section = styled.section`
 	border-bottom: 0.3px solid ${colors.line};
@@ -15,12 +15,26 @@ export const Section = styled.section`
 	}
 	& .recommended__details {
 		font-size: 0.9rem;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-line-clamp: 1;
+		-webkit-box-orient: vertical;
 	}
 	& .recommended__desc {
 		display: -webkit-box;
 		overflow: hidden;
 		-webkit-line-clamp: 2;
 		-webkit-box-orient: vertical;
+
+		&.none {
+			display: none;
+			${media.tab} {
+				display: -webkit-box;
+			}
+			${media.tab} {
+				display: none;
+			}
+		}
 	}
 
 	& .recommended__name {
@@ -32,8 +46,8 @@ export const Section = styled.section`
 	}
 
 	.channel-icon {
-		width: 40px;
-		height: 40px;
+		width: 30px;
+		height: 30px;
 	}
 `;
 

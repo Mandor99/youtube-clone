@@ -26,6 +26,9 @@ export const Aside = styled.aside`
 			transform: translateX(0);
 		}
 	}
+	& .sidebar__link {
+		color: inherit;
+	}
 `;
 
 export const Item = styled.div`

@@ -24,6 +24,10 @@ export const NavbarComp = styled.nav`
 			cursor: pointer;
 		}
 	}
+
+	& .nav-link {
+		color: inherit;
+	}
 `;
 
 const sizeLogo = '30px';

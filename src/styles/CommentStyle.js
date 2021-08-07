@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from './GlobalStyle';
+import { colors, media } from './GlobalStyle';
 
 export const Fig = styled.figure`
 	font-size: 0.9rem;
@@ -10,6 +10,12 @@ export const Fig = styled.figure`
 			width: 50px;
 			height: 50px;
 			margin-right: 1.5rem;
+
+			${media.mobileSm} {
+				width: 35px;
+				height: 35px;
+				margin-right: 1rem;
+			}
 		}
 
 		&__user {

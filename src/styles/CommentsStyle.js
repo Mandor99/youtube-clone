@@ -1,7 +1,13 @@
 import styled from 'styled-components';
-import { colors } from './GlobalStyle';
+import { colors, media } from './GlobalStyle';
 
-export const Article = styled.article``;
+export const Article = styled.article`
+	.comments__number {
+		${media.mobileSm} {
+			font-size: 1.1rem;
+		}
+	}
+`;
 
 export const Wrapper = styled.div`
 	& .comment {
@@ -9,6 +15,12 @@ export const Wrapper = styled.div`
 			width: 50px;
 			height: 50px;
 			margin-right: 1.5rem;
+
+			${media.mobileSm} {
+				width: 35px;
+				height: 35px;
+				margin-right: 1rem;
+			}
 		}
 	}
 `;
@@ -31,6 +43,10 @@ export const Form = styled.form`
 			background-color: ${colors.color3};
 			color: #fff;
 			letter-spacing: 0.5px;
+
+			${media.mobileSm} {
+				padding: 0.25rem !important;
+			}
 
 			&:focus {
 				outline: none;

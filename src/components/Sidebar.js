@@ -27,18 +27,20 @@ function Sidebar({ sideBar, toggleSideBar }) {
 			className={sideBar ? 'open' : ''}
 			onClick={() => toggleSideBar(false)}
 		>
-			<Link to='/'>
+			<Link to='/' className='sidebar__link'>
 				<Item>
 					<MdHome size={23} />
 					<span>Home</span>
 				</Item>
 			</Link>
-			<Link to='/profile/subscription'>
+
+			<Link to='/profile/subscription' className='sidebar__link'>
 				<Item>
 					<MdSubscriptions size={23} />
 					<span>Subscriptions</span>
 				</Item>
 			</Link>
+
 			<Item>
 				<MdThumbUp size={23} />
 				<span>Liked Videos</span>

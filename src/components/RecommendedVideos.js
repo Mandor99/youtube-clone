@@ -21,7 +21,7 @@ function RecommendedVideos({ video, searchPage, subscribed }) {
 	const description = video?.snippet?.description;
 	const videosCount = video?.contentDetails?.totalItemCount;
 	//views(video details)
-	const [views, setViews] = useState(0);
+	const [views, setViews] = useState('');
 	//duration(video details)
 	const [duration, setDuration] = useState('');
 	//channel thumb for search page
@@ -57,7 +57,7 @@ function RecommendedVideos({ video, searchPage, subscribed }) {
 					id: channelId,
 				},
 			});
-			setChannelIcon(items[0].snippet?.thumbnails?.medium);
+			setChannelIcon(items[0].snippet?.thumbnails?.default);
 		};
 		getChannels();
 	}, [channelId]);
@@ -91,12 +91,17 @@ function RecommendedVideos({ video, searchPage, subscribed }) {
 					<h4 className='recommended__title mb-1'>{title}</h4>
 					{isVideo && (
 						<div className='recommended__details'>
-							<AiFillEye /> {numeral(views).format('0a')} views .
-							{moment(publishedAt).fromNow()}
+							<AiFillEye />{' '}
+							<span>
+								{numeral(views).format('0a')} views .
+								{moment(publishedAt).fromNow()}{' '}
+							</span>
 						</div>
 					)}
 					{subscribed | isChannel | isVideo && (
-						<p className='mt-1 recommended__desc'>{description}</p>
+						<p className={`mt-1 recommended__desc ${isVideo && 'none'}`}>
+							{description}
+						</p>
 					)}
 					<div className='d-flex align-items-center my-1'>
 						{isVideo && (

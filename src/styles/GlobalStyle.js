@@ -16,7 +16,7 @@ export const paddings = {
 };
 
 export const bp = {
-	mobileSm: '350px',
+	mobileSm: '370px',
 	mobile: '570px',
 	tab: '768px',
 	lap: '992px',

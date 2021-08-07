@@ -1,6 +1,5 @@
 import React from 'react';
 import { Fig } from '../styles/CommentStyle';
-import channelImg from '../images/channel.jpg';
 import moment from 'moment';
 
 function Comment({ comment }) {

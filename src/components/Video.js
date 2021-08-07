@@ -71,7 +71,7 @@ function Video({
 	}, [_channelId]);
 
 	const handleWatchVideo = () => {
-		history.push(`watch/${_videoId}`);
+		history.push(`/watch/${_videoId}`);
 	};
 
 	return (

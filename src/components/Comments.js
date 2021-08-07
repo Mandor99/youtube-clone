@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Comment from './Comment';
 import { Article, Form, Wrapper } from '../styles/CommentsStyle';
-import channelImg from '../images/channel.jpg';
+// import channelImg from '../images/channel.jpg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
 	getCommentsAction,
@@ -11,6 +11,7 @@ import {
 function Comments({ videoId, count }) {
 	const [newComment, setNewComment] = useState('');
 	const { comments } = useSelector((state) => state.comments);
+	const { user } = useSelector((state) => state.auth);
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(getCommentsAction(videoId));
@@ -28,7 +29,7 @@ function Comments({ videoId, count }) {
 			<h3 className='comments__number'>{`${count} Comments`}</h3>
 			<Wrapper className='d-flex w-100 my-2'>
 				<img
-					src={channelImg}
+					src={user?.photoURL}
 					alt='avatar'
 					className='comment__img rounded-circle'
 				/>

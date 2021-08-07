@@ -44,9 +44,9 @@ function MetaData({ data, videoId }) {
 	return (
 		<Main className='py-2'>
 			<TitleWrapper>
-				<h5>{title}</h5>
+				<h5 className='video__title'>{title}</h5>
 				<div className='content-wrapper d-flex justify-content-between align-items-center'>
-					<div className=''>
+					<div className='video__time-views'>
 						<span>{numeral(viewCount).format('0a')} views .</span>
 						<span>&nbsp; {moment(publishedAt).fromNow()} </span>
 					</div>

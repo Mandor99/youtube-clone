@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { NavbarComp, Logo, WrapperProfile } from '../styles/NavbarStyle';
+import { NavbarComp, Logo, WrapperProfile, Form } from '../styles/NavbarStyle';
 import { FaBars } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdNotifications, MdApps } from 'react-icons/md';
 import LogoImg from '../images/logo.png';
-import { Form } from '../styles/NavbarStyle';
 import AvatarImg from '../images/avatar.png';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function Navbar({ toggleSideBar }) {
+	const { user } = useSelector((state) => state.auth);
 	const [searchInput, setSearchInput] = useState('');
 	const handleChange = (setter) => (e) => setter(e.target.value);
 	const history = useHistory();
@@ -23,7 +24,9 @@ function Navbar({ toggleSideBar }) {
 				size={26}
 				onClick={() => toggleSideBar()}
 			/>
-			<Logo src={LogoImg} alt=' youtube logo' />
+			<Link to='/' className='nav-link'>
+				<Logo src={LogoImg} alt=' youtube logo' />
+			</Link>
 			<Form onSubmit={handleSubmit}>
 				<input
 					type='text'
@@ -39,7 +42,11 @@ function Navbar({ toggleSideBar }) {
 			<WrapperProfile>
 				<MdNotifications size={28} />
 				<MdApps size={28} />
-				<img src={AvatarImg} alt='avatar profile' className='nav__avatar' />
+				<img
+					src={user?.photoURL}
+					alt='avatar profile'
+					className='nav__avatar'
+				/>
 			</WrapperProfile>
 		</NavbarComp>
 	);
