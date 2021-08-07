@@ -4,7 +4,7 @@ import { FaBars } from 'react-icons/fa';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { MdNotifications, MdApps } from 'react-icons/md';
 import LogoImg from '../images/logo.png';
-import AvatarImg from '../images/avatar.png';
+// import AvatarImg from '../images/avatar.png';
 import { useHistory, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
