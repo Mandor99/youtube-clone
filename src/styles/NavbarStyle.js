@@ -68,6 +68,10 @@ export const Form = styled.form`
 		&:focus {
 			outline: none;
 		}
+
+		${media.mobile} {
+			font-size: 0.9rem;
+		}
 	}
 
 	.nav__search-btn {
@@ -78,6 +82,10 @@ export const Form = styled.form`
 
 		&:focus {
 			border: none;
+		}
+
+		${media.mobile} {
+			padding: 0 0.5rem;
 		}
 	}
 `;

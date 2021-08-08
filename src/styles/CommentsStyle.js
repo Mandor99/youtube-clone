@@ -37,6 +37,10 @@ export const Form = styled.form`
 				outline: none;
 				/* border: none; */
 			}
+
+			${media.mobile} {
+				font-size: 0.9rem;
+			}
 		}
 
 		&__btn {
