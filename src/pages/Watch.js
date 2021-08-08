@@ -12,6 +12,7 @@ import {
 } from '../features/videos/videosActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
+import { Helmet } from 'react-helmet';
 
 function Watch() {
 	const { id } = useParams();
@@ -31,10 +32,13 @@ function Watch() {
 		<div>
 			<Layout>
 				<Row>
+					<Helmet>
+						<title>{data?.snippet?.title}</title>
+					</Helmet>
 					<Col lg={8}>
 						<VideoWrapper>
 							<iframe
-								title='watched video'
+								title={data?.snippet?.title}
 								src={`https://www.youtube.com/embed/${id}`}
 								frameBorder='0'
 								allowFullScreen

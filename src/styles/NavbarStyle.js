@@ -13,7 +13,7 @@ export const NavbarComp = styled.nav`
 
 	${media.mobile} {
 		padding: ${paddings.p1};
-		gap: 1rem;
+		/* gap: 1rem; */
 	}
 
 	& .nav__toggle-slide {
@@ -53,6 +53,7 @@ export const Form = styled.form`
 
 	${media.mobile} {
 		flex: 1;
+		margin: 0 0.25rem;
 	}
 
 	.nav__input {
