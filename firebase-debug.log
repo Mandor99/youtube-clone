@@ -1,0 +1,27 @@
+[debug] [2021-08-08T01:40:54.817Z] ----------------------------------------------------------------------
+[debug] [2021-08-08T01:40:54.840Z] Command:       /usr/bin/node /usr/bin/firebase deploy
+[debug] [2021-08-08T01:40:54.840Z] CLI Version:   9.1.0
+[debug] [2021-08-08T01:40:54.841Z] Platform:      linux
+[debug] [2021-08-08T01:40:54.841Z] Node Version:  v14.17.2
+[debug] [2021-08-08T01:40:54.909Z] Time:          Sun Aug 08 2021 03:40:54 GMT+0200 (Eastern European Standard Time)
+[debug] [2021-08-08T01:40:54.910Z] ----------------------------------------------------------------------
+[debug] [2021-08-08T01:40:54.910Z] 
+[debug] [2021-08-08T01:40:54.995Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-08T01:40:54.996Z] > authorizing via signed-in user
+[debug] [2021-08-08T01:40:54.997Z] [iam] checking project clone-3f545 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-08T01:40:55.017Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/clone-3f545:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-08-08T01:41:10.690Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 08 Aug 2021 01:41:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=605","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-08T01:41:10.694Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/clone-3f545  
+ 
+[debug] [2021-08-08T01:41:18.864Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 08 Aug 2021 01:41:16 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'clone-3f545'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-08-08T01:41:18.875Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/clone-3f545/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2021-08-08T01:41:52.896Z] Error: getaddrinfo EAI_AGAIN firebasehosting.googleapis.com
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:69:26)
+[error] 
+[error] Error: Server Error. getaddrinfo EAI_AGAIN firebasehosting.googleapis.com

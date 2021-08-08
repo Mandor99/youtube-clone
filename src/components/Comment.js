@@ -3,7 +3,7 @@ import { Fig } from '../styles/CommentStyle';
 import moment from 'moment';
 
 function Comment({ comment }) {
-	const textDisplay = comment?.textDisplay;
+	const textOriginal = comment?.textOriginal;
 	const authorDisplayName = comment?.authorDisplayName;
 	const authorProfileImageUrl = comment?.authorProfileImageUrl;
 	const publishedAt = comment?.publishedAt;
@@ -18,7 +18,7 @@ function Comment({ comment }) {
 				<p className='comment__user mb-1'>
 					{authorDisplayName} . {moment(publishedAt).fromNow()}
 				</p>
-				<p className='comment__details mb-0'>{textDisplay}</p>
+				<p className='comment__details mb-0'>{textOriginal}</p>
 			</figcaption>
 		</Fig>
 	);
